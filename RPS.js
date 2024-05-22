@@ -17,8 +17,12 @@ function getHumanChoice(hchoice = prompt("Rock, Paper, Scissors?")) {
     word = hchoice.toLowerCase()
     if (word === "rock" || word === "paper" || word === "scissors") {
         decision = word.charAt(0).toUpperCase() + hchoice.slice(1)
+        return(decision)
     }
-    return(decision)
+    else{
+        console.log("Invalid input, please refresh page to try again.")
+    }
+    return
 }
 
 let humanScore = 0
@@ -43,6 +47,9 @@ function playGame() {
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice()
         console.log(playRound(humanSelection, computerSelection))
+        if (humanSelection === null) {
+            return
+        }
     }
     console.log("Your Score: " + humanScore)
     console.log("Computer Score: " + computerScore)
